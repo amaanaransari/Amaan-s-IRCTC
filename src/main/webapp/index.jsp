@@ -130,7 +130,6 @@
 
     <form>
 
-        <!-- ===========================================================
              FUTURE FIELDS (Just Uncomment Whenever Needed)
 
         <label for="fullname">Full Name</label>
@@ -173,8 +172,6 @@
             id="address"
             name="address"
             placeholder="Enter your address">
-
-        =========================================================== -->
 
         <label for="email">Email Address</label>
         <input
