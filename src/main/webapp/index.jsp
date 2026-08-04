@@ -1,264 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amaan Travel Registration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amaan's IRCTC - Registration</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#0f172a,#1d4ed8,#38bdf8);
+            padding:20px;
+        }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      background: linear-gradient(135deg, #020617, #0f172a, #172554, #0ea5e9);
-      position: relative;
-    }
+        .card{
+            width:100%;
+            max-width:430px;
+            background:#fff;
+            border-radius:20px;
+            padding:35px;
+            box-shadow:0 20px 50px rgba(0,0,0,.25);
+            animation:slideUp .6s ease;
+        }
 
-    /* Animated Background */
-    body::before {
-      content: "";
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      background: #06b6d4;
-      filter: blur(180px);
-      opacity: .35;
-      top: -200px;
-      left: -200px;
-      animation: move1 12s infinite alternate;
-    }
+        @keyframes slideUp{
+            from{
+                opacity:0;
+                transform:translateY(40px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
 
-    body::after {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: #7c3aed;
-      filter: blur(180px);
-      opacity: .35;
-      bottom: -180px;
-      right: -180px;
-      animation: move2 14s infinite alternate;
-    }
+        .logo{
+            font-size:55px;
+            text-align:center;
+        }
 
-    @keyframes move1 {
-      to {
-        transform: translate(250px, 120px);
-      }
-    }
+        h1{
+            text-align:center;
+            color:#0f172a;
+            margin-top:10px;
+        }
 
-    @keyframes move2 {
-      to {
-        transform: translate(-220px, -120px);
-      }
-    }
+        .subtitle{
+            text-align:center;
+            color:#64748b;
+            margin-top:8px;
+            margin-bottom:30px;
+        }
 
-    /* Glass Card */
-    .card {
-      position: relative;
-      width: 430px;
-      padding: 40px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, .08);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, .15);
-      box-shadow:
-        0 25px 60px rgba(0, 0, 0, .45),
-        0 0 30px rgba(56, 189, 248, .2);
-      z-index: 2;
-      animation: fadeUp .8s ease;
-      overflow: hidden;
-    }
+        label{
+            display:block;
+            font-weight:600;
+            color:#1e293b;
+            margin-bottom:8px;
+            margin-top:15px;
+        }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      background: linear-gradient(45deg, #38bdf8, #8b5cf6, #06b6d4, #38bdf8);
-      background-size: 400%;
-      z-index: -1;
-      filter: blur(25px);
-      animation: borderMove 8s linear infinite;
-      opacity: .7;
-    }
+        input{
+            width:100%;
+            padding:14px 16px;
+            border:2px solid #dbeafe;
+            border-radius:12px;
+            outline:none;
+            font-size:15px;
+            transition:.3s;
+        }
 
-    @keyframes borderMove {
-      0% {
-        background-position: 0%;
-      }
-      100% {
-        background-position: 400%;
-      }
-    }
+        input:focus{
+            border-color:#2563eb;
+            box-shadow:0 0 12px rgba(37,99,235,.25);
+        }
 
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+        button{
+            width:100%;
+            margin-top:30px;
+            padding:15px;
+            border:none;
+            border-radius:12px;
+            background:#2563eb;
+            color:#fff;
+            font-size:17px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:.3s;
+        }
 
-    .logo {
-      font-size: 65px;
-      text-align: center;
-      animation: float 3s infinite ease-in-out;
-    }
+        button:hover{
+            background:#1d4ed8;
+            transform:translateY(-2px);
+        }
 
-    @keyframes float {
-      50% {
-        transform: translateY(-10px);
-      }
-    }
+        button:active{
+            transform:scale(.98);
+        }
 
-    h1 {
-      text-align: center;
-      color: white;
-      margin-top: 10px;
-      font-size: 30px;
-    }
-
-    .subtitle {
-      text-align: center;
-      margin-top: 8px;
-      margin-bottom: 25px;
-      color: #cbd5e1;
-      font-size: 15px;
-    }
-
-    /* Inputs */
-    label {
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 8px;
-      color: white;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    input {
-      width: 100%;
-      padding: 15px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, .08);
-      border: 1px solid rgba(255, 255, 255, .2);
-      color: white;
-      font-size: 15px;
-      outline: none;
-      transition: .35s;
-    }
-
-    input::placeholder {
-      color: #cbd5e1;
-    }
-
-    input:hover {
-      border-color: #38bdf8;
-    }
-
-    input:focus {
-      background: rgba(255, 255, 255, .15);
-      border-color: #38bdf8;
-      box-shadow: 0 0 15px #38bdf8;
-      transform: scale(1.02);
-    }
-
-    /* Button */
-    button {
-      margin-top: 35px;
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 15px;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-      color: white;
-      background: linear-gradient(90deg, #06b6d4, #3b82f6, #7c3aed);
-      background-size: 300%;
-      transition: .4s;
-    }
-
-    button:hover {
-      background-position: right;
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(56, 189, 248, .45);
-    }
-
-    button:active {
-      transform: scale(.97);
-    }
-
-    .footer {
-      margin-top: 28px;
-      text-align: center;
-      color: #cbd5e1;
-      font-size: 13px;
-    }
-
-    /* Scroll */
-    form {
-      max-height: 560px;
-      overflow-y: auto;
-      padding-right: 5px;
-    }
-
-    form::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    form::-webkit-scrollbar-thumb {
-      background: #38bdf8;
-      border-radius: 20px;
-    }
-  </style>
+        .footer{
+            text-align:center;
+            margin-top:25px;
+            color:#64748b;
+            font-size:13px;
+        }
+    </style>
 </head>
+
 <body>
 
-  <div class="card">
+<div class="card">
 
-    <div class="logo">🚄</div>
+    <div class="logo">🚆</div>
 
-    <h1>Amaan Travel</h1>
+    <h1>Amaan's IRCTC</h1>
 
-    <p class="subtitle">Journey begins with your account</p>
+    <p class="subtitle">
+        Create your account securely
+    </p>
 
     <form>
 
-      <label>Full Name</label>
-      <input type="text" placeholder="Enter your full name">
+             FUTURE FIELDS (Just Uncomment Whenever Needed)
 
-      <label>Email</label>
-      <input type="email" placeholder="Enter your email">
+        <label for="fullname">Full Name</label>
+        <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            placeholder="Enter your full name">
 
-      <label>Password</label>
-      <input type="password" placeholder="Create password">
+        <label for="aadhaar">Aadhaar Number</label>
+        <input
+            type="text"
+            id="aadhaar"
+            name="aadhaar"
+            placeholder="Enter your 12-digit Aadhaar Number">
 
-      <label>Confirm Password</label>
-      <input type="password" placeholder="Confirm password">
+        <label for="mobile">Mobile Number</label>
+        <input
+            type="tel"
+            id="mobile"
+            name="mobile"
+            placeholder="Enter your mobile number">
 
-      <button>Create Your Journey →</button>
+        <label for="dob">Date of Birth</label>
+        <input
+            type="date"
+            id="dob"
+            name="dob">
+
+        <label for="gender">Gender</label>
+        <input
+            type="text"
+            id="gender"
+            name="gender"
+            placeholder="Enter your gender">
+
+        <label for="address">Address</label>
+        <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Enter your address">
+
+        <label for="email">Email Address</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            required>
+
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Create a strong password"
+            required>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Re-enter your password"
+            required>
+
+        <button type="submit">
+            Create Account
+        </button>
 
     </form>
 
-    <div class="footer">✨ Smart Railway Booking Platform ✨</div>
+    <div class="footer">
+        © 2026 Amaan's IRCTC • Fast • Secure • Reliable
+    </div>
 
-  </div>
+</div>
 
 </body>
 </html>
-
