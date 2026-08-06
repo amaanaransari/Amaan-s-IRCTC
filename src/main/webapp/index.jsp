@@ -233,7 +233,7 @@
 
     <div class="logo">🚄</div>
 
-    <h1>Amaan Travel</h1>
+    <h1>Bissi's Travel</h1>
 
     <p class="subtitle">Journey begins with your account</p>
 
