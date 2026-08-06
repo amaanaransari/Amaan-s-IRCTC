@@ -239,7 +239,7 @@
 
     <form>
 
-      <label>Full Name</label>
+      <label>AAPKA PURA NAAM</label>
       <input type="text" placeholder="Enter your full name">
 
       <label>Email</label>
