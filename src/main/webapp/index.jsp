@@ -89,6 +89,9 @@
         <label>Full Name</label>
         <input type="text" placeholder="Enter your full name">
 
+        <label>Spouse Name</label>
+        <input type="text" placeholder="Enter your spouse name">
+
         <label>Email</label>
         <input type="email" placeholder="Enter your email">
 
